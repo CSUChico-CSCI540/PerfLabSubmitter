@@ -1,0 +1,5 @@
+Django
+psycopg2
+gunicorn
+celery[redis]
+django-celery

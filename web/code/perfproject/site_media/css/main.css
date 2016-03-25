@@ -1,0 +1,38 @@
+.CircularProgress-Bg, .CircularProgress-Fg {
+  fill: none; }
+
+.CircularProgress-Bg {
+  stroke: #ddd; }
+
+.CircularProgress-Fg {
+  transition: stroke-dashoffset .5s ease-in-out;
+  stroke: #2ecc40; }
+
+.CircularProgress-Text {
+  font-family: sans-serif;
+  font-size: 30px;
+  fill: #2ecc40;
+  transform: translate(0 50%); }
+
+html, body, #container {
+  margin: 0;
+  padding: 0;
+  height: 100%; }
+
+#container {
+  display: table;
+  width: 100%; }
+
+.Demo {
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle; }
+
+.Percentage {
+    margin-left: 30px;
+}
+
+#grades {
+    margin-left: 30px;
+    white-space: pre;
+}

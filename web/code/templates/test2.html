@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %} {{ page_name }} {% endblock %}
+{% block external %}
+<script type="text/javascript" src="site_media/jquery.js"></script>
+<script type="text/javascript" src="site_media/react.js"></script>
+<script type="text/javascript" src="site_media/JSXTransformer.js"></script>
+<script type="text/jsx" src="site_media/js/submit.js"></script>
+{% endblock %}
+{% block head %}
+Testing
+{% endblock %}
+{% block content %}
+
+<div id="container">
+  <p>
+    If you can see this, React is not working right. This is probably because you&apos;re viewing
+    this on your file system instead of a web server. Try running
+    <pre>
+      python -m SimpleHTTPServer
+    </pre>
+    and going to <a href="http://localhost:8000/">http://localhost:8000/</a>.
+  </p>
+</div>
+
+{% endblock %}

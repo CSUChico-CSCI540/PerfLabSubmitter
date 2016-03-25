@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% block title %} {{ page_name }} {% endblock %}
+{% block external %}	  
+{% endblock %}
+{% block head %}
+Perflab Submissions
+{% endblock %}
+{% block content %}
+<h3>Submit Performance Lab:</h3>
+
+<br>
+{{ servers }}
+
+{% if form.errors %}
+    <p style="color: red;">
+        Please correct the error{{ form.errors|pluralize }} below.
+    </p>
+{% endif %}
+<form action="" method="post" enctype="multipart/form-data">
+	{% csrf_token %}
+	<table>
+        
+	    <tr>
+            <th align="left">                
+                <label for="FilterMain">(REQUIRED) FilterMain.cpp: </label>
+            </th>
+            <th>
+                {{ form.FilterMain }}
+            </th>
+            <th align="left">
+                {{ form.FilterMain.errors }}
+            </th>
+	    </tr>
+	    <tr>
+            <th align="left">
+        	   
+                <label for="Makefile">Makefile: </label>
+            </th>
+            <th>
+                {{ form.Makefile }}
+            </th>
+            <th align="left">
+                 {{ form.Makefile.errors }}
+            </th>
+        </tr>
+        <tr>
+            <th align="left">
+                <label for="Filter.c">Filter.cpp: </label>
+            </th>
+            <th>
+                {{ form.Filter_c }}
+            </th>
+            <th align="left">
+                 {{ form.Filter_c.errors }}
+            </th>
+        </tr>
+        <tr>
+            <th align="left">
+                <label for="Filter_h">Filter.h: </label>
+            </th>
+            <th>
+                {{ form.Filter_h }}
+            </th>
+            <th align="left">
+                 {{ form.Filter_h.errors }}
+            </th>
+        </tr>
+        <tr>
+            <th align="left">
+        	    
+                <label for="cs1300_c">cs1300bmp.cc: </label>
+            </th>
+            <th>
+                {{ form.cs1300_c }}
+            </th>
+            <th align="left">
+                {{ form.cs1300_c.errors }}
+            </th>
+        </tr>
+         <tr>
+            <th align="left">        	    
+                <label for="cs1300_h">cs1300bmp.h: </label>
+            </th>
+            <th>
+                {{ form.cs1300_h }}
+            </th>
+            <th align="left">
+                 {{ form.cs1300_h.errors }}
+            </th>
+        </tr>
+	</table>
+     <p><input type="submit" value="Submit Lab" /></p>
+</form>
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %} {{ page_name }} {% endblock %}
+{% block external %}
+<script type="text/javascript" src="site_media/prototype.js"></script>
+<script type="text/javascript" language="javascript">
+
+window.onload=function update(){   
+    var task = "/wait/{{ task }}";
+    var myVar = new Ajax.PeriodicalUpdater('waiting', "/wait/{{ task }}", { 
+      method: 'get', 
+      frequency: 1,
+      onSuccess: function(transport){
+          var response = transport.responseText || "no response text";
+          if(response == 'finished') {
+             window.location.href ='/done/{{ task }}';
+             myVar.stop();            
+          }          
+        },
+        onFailure: function(){ alert('Something went wrong...') }
+        
+    });
+    var myVar = new Ajax.PeriodicalUpdater('proBar', "/wupdate/{{ task }}", { 
+      method: 'get', 
+      frequency: 1,
+      insertion: function (progress, value) {
+            progress.value = value;
+            //if (value >= progress.max) throw $break;
+      }
+        
+    });
+    	  
+}
+</script>
+
+{% endblock %}
+{% block head %}
+Perflab Running
+{% endblock %}
+{% block content %}
+
+<h3>Running Code!!</h3>
+<p id="waiting">(fetching details ...) {{ task }}</p>
+
+<progress id="proBar" value="0" max="100" style="width:300px;"></progress>
+
+
+{% endblock %}

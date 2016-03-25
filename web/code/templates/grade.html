@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %} {{ page_name }} {% endblock %}
+{% block external %}
+
+{% endblock %}
+{% block head %}
+Perflab Finished
+{% endblock %}
+{% block content %}
+
+<h3>Results (blocks-small.bmp):</h3>
+<div id="grade"><p>{{ results|linebreaks }}</p></div>
+
+{% endblock %}
