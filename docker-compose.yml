@@ -13,13 +13,13 @@ web:
   command: bash -c "supervisord -c /etc/supervisor/supervisord.conf; python manage.py runserver 0.0.0.0:8000"
   #command: bash -c "/etc/init.d/celeryd start ; python manage.py runserver 0.0.0.0:8000"
   #command: /usr/local/bin/gunicorn -w 2 -b :8000 perfproject.wsgi
-     
+
 redis:
   build: ./redis
 
 redis2:
   build: ./redis
-  
+
 nginx:
   restart: always
   build: ./nginx/
@@ -47,5 +47,5 @@ postgres:
   image: postgres:latest
   volumes:
     - ./db/postgresql:/var/lib/postgresql
-  ports:
-    - "5432:5432"
+  expose:
+    - "5432"
